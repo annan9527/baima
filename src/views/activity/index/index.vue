@@ -297,7 +297,7 @@ export default {
       let that = this
       setTimeout(function () {
         that.$refs.bianji.changehtml(form.activityContent);
-      }, 500);
+      }, 100);
     },
     selectModel(setVal) {
       this.form.userId = this.form.item.id;

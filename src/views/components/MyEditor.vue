@@ -45,11 +45,10 @@ export default Vue.extend({
   methods: {
     changehtml(val) {
       if (val) {
-        console.log('val存在')
+       
         this.html = val;
       } else {
-         console.log('val不存在')
-        editor.txt.html('')
+         this.html = "<p><br></p>"; 
       }
     },
     onCreated(editor) {
@@ -87,9 +86,7 @@ export default Vue.extend({
 
   mounted() {
     // 模拟 ajax 请求，异步渲染编辑器
-    // setTimeout(() => {
-    //   this.html = "<p>模拟 Ajhax 异步设置内容 HTML</p>";
-    // }, 1500);
+   
   },
   beforeDestroy() {
     const editor = this.editor;
