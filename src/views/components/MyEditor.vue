@@ -45,7 +45,6 @@ export default Vue.extend({
   methods: {
     changehtml(val) {
       if (val) {
-       
         this.html = val;
       } else {
          this.html = "<p><br></p>"; 

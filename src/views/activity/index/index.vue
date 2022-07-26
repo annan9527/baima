@@ -256,7 +256,7 @@ export default {
   },
   methods: {
     change(val) {
-      console.log(val)
+     
       this.form.activityContent = val;
     },
     changeRole(value) {
@@ -293,11 +293,11 @@ export default {
     },
     // 新增与编辑前做的操作
     [CRUD.HOOK.afterToCU](crud, form) {
-      console.log(form)
+     
       let that = this
       setTimeout(function () {
         that.$refs.bianji.changehtml(form.activityContent);
-      }, 100);
+      },0);
     },
     selectModel(setVal) {
       this.form.userId = this.form.item.id;
