@@ -211,7 +211,7 @@ export default {
             message: '审核成功!'
           });
           // 审核成功 删除数据
-         this.crud.doDelete(val.row)
+         this.crud.doEdit(val.row)
         }).catch(() => {
           this.$message({
             type: 'info',

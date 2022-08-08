@@ -450,6 +450,7 @@ import pagination from "@crud/Pagination";
 import Treeselect from "@riophae/vue-treeselect";
 import { mapGetters } from "vuex";
 import "@riophae/vue-treeselect/dist/vue-treeselect.css";
+import { normalize } from "path";
 
 let userRoles = [];
 // crud交由presenter持有
@@ -460,6 +461,7 @@ const defaultCrud = CRUD({
   sort: "region_area_id,asc",
 });
 const defaultForm = {
+  regionAreaId:null,
   checkTime:null,
   areaId: null,
   canJi: "否",
@@ -565,6 +567,7 @@ export default {
       this.crud.toQuery();
       this.crud.msg.add = "新增成功";
     });
+    
   },
   mounted: function () {
     const that = this;
@@ -582,10 +585,13 @@ export default {
     afterErrorMethod(crud) {
       // 恢复select
       const initRoles = [];
+      const arr = []
       userRoles.forEach(function (role, index) {
+       
         initRoles.push(role.id);
       });
       crud.form.roles = initRoles;
+                     
     },
     deleteTag(value) {
       userRoles.forEach(function (data, index) {
@@ -634,7 +640,6 @@ export default {
     // 获取弹窗内部门数据
     getDepts() {
       tree({ enabled: true }).then((res) => {
-      
         this.depts = res;
       });
     },
@@ -711,6 +716,7 @@ export default {
     },
     // 树
     normalizer(node) {
+     
       //去掉children=null的属性
       if (node.children == null || node.children == "null") {
         delete node.children;

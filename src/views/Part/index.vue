@@ -88,9 +88,9 @@
       >
         <el-table-column type="selection" width="55" />
         <el-table-column
-          v-if="columns.visible('userId')"
-          prop="userId"
-          label="党员id"
+          v-if="columns.visible('userName')"
+          prop="userName"
+          label="党员姓名"
         />
         <el-table-column
           v-if="columns.visible('areaNames')"
@@ -126,7 +126,7 @@ import MaterialList from "@/components/material";
 
 // crud交由presenter持有
 const defaultCrud = CRUD({
-  title: "党员连护",
+  title: "党员联户",
   url: "api/partyMember",
   sort: "id,desc",
   crudMethod: { ...crudPartyMember },

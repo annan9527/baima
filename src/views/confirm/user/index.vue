@@ -4,8 +4,8 @@
       <!--用户数据-->
       <el-col>
         <!--工具栏-->
-         <!--如果想在工具栏加入更多按钮，可以使用插槽方式， slot = 'left' or 'right'-->
-            <crudOperation :permission="permission"/>
+        <!--如果想在工具栏加入更多按钮，可以使用插槽方式， slot = 'left' or 'right'-->
+        <crudOperation :permission="permission" />
         <!--表单渲染-->
         <el-dialog
           append-to-body
@@ -23,8 +23,21 @@
             size="small"
             label-width="110px"
           >
-            <el-form-item label="类型" prop="type">
+            <!-- <el-form-item label="类型" prop="type">
               <el-input v-model.number="form.type" />
+            </el-form-item> -->
+            <el-form-item label="类型">
+              <el-select
+                v-model="form.region"
+                placeholder="请选择活动区域"
+                v-model.number="form.type"
+              >
+                <el-option
+                  label="衢南公司收入"
+                  value="衢南公司收入"
+                ></el-option>
+                <el-option label="村集体收入" value="村集体收入"></el-option>
+              </el-select>
             </el-form-item>
             <el-form-item label="年" prop="year">
               <el-input v-model.number="form.year" />
@@ -126,7 +139,6 @@ import pagination from "@crud/Pagination";
 import Treeselect from "@riophae/vue-treeselect";
 import { mapGetters } from "vuex";
 import "@riophae/vue-treeselect/dist/vue-treeselect.css";
-
 
 let userRoles = [];
 // crud交由presenter持有

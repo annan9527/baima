@@ -5,18 +5,7 @@
       <el-col>
         <!--工具栏-->
         <div class="head-container">
-          <div v-if="crud.props.searchToggle">
-            <el-input
-              v-model="query.userName"
-              clearable
-              size="small"
-              placeholder="活动名字"
-              style="width: 200px"
-              class="filter-item"
-              @keyup.enter.native="crud.toQuery"
-            />
-            <rrOperation :crud="crud" />
-          </div>
+         
           <crudOperation show="" :permission="permission" />
         </div>
         <!--表单渲染-->
